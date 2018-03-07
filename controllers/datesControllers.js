@@ -8,10 +8,10 @@ var router = express.Router();
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
   
-      db.Date.findAll({
-      }).then(function(dbDate) {
+      db.dates.findAll({
+      }).then(function(dbdates) {
         var hbsObject = {
-          date: dbDate
+          date: dbdates
         };
         console.log(hbsObject);
         res.render("index", hbsObject);

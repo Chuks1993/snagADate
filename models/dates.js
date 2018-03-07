@@ -1,13 +1,15 @@
 module.exports = function(sequelize, DataTypes) {
-    var Date = sequelize.define("Date", {
+    var dates = sequelize.define("dates", {
       // Giving the Date model a name of type STRING
       name: DataTypes.STRING,
       gender: DataTypes.STRING,
       photo: DataTypes.STRING,
-      type: DataTypes.STRING,
+      traits: DataTypes.STRING,
       tier: DataTypes.INTEGER,
       quote: DataTypes.STRING
+    }, {
+      timestamps: false
     });
   
-    return Date;
+    return dates;
   };
