@@ -1,0 +1,107 @@
+
+
+  <div class="container">
+
+    
+      <h1 class="text-left"><span></span>Snag Someone</h1>
+
+
+
+    <div class="row">
+      <div class="col-lg-4">
+        <form>
+          <div class="form-group">
+            <label for="tier">Tier</label>
+            <select class="form-control" id="tier">
+              <option>Select tier</option>
+              <option value="1">Tier 1</option>
+              <option value="2">Tier 2</option>
+              <option value="3">Tier 3</option>
+            </select>
+          </div>
+        </form>        
+      </div> 
+      <div class="col-lg-4">
+        <form>
+              <div class="form-group">
+                <label for="gender">Snagging who?</label>
+                <select class="form-control" id="gender">
+                  <option>Select gender</option>
+                  <option value="men">Men</option>
+                  <option value="women">Women</option>
+                </select>
+              </div>
+        </form>
+      </div>  
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label for="type">Got a type?</label>
+          <select class="form-control" id="type">
+            <option value="">Choose type</option>
+            <option value="bad one">Bad one</option>
+            <option value="take home to parents">Take home to parents</option>
+            <option value="the perfect date">The perfect date</option>
+            <option value="eccentric">The eccentric</option>
+          </select>
+        </div>
+      </div>
+        <form role="form">
+          <button type="submit" class="btn btn-primary submit">Submit</button>
+        </form>
+
+      {{date}}
+      <div class="row" id="displayResult"></div>
+    
+
+
+      
+    </div>
+  </div>
+
+<br>
+
+
+
+<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
+<script type="text/javascript">
+
+ $.get("/api/dates", function(data) {
+        for (let i = 0; i < data.length; i++) {
+          //$('#displayResult').append("<div>" + data[i].name + "</div>");
+           $("#displayResult").append("<img style='width: 300px; height: 300px; float: left; border: 25px; padding: 25px;' class='img - thumbnail' src=" + data[i].photo + ">");
+        }
+      })
+
+      
+
+
+
+$(".submit").on("click", function(event) {
+      event.preventDefault();
+
+     
+
+      //if( ($('#survey-name').val().trim() !== "") && ($('#survey-photo').val().trim() !== "") ) {
+        // Create an object for the user's data
+        
+        // Here we grab the form elements
+          var newDate = {
+            tier: $("#tier").val(),
+            gender: $("#gender").val(),
+            type: $('#type').val()
+          };
+
+          $.post("/api/dates", newDate, function(data) {
+
+            console.log(data);
+            
+            for (let index = 0; index < data.length; index++) {
+              
+              $("#displayResult").html("<div>" + data[index].name + "</div>");
+              $("#displayResult").html("<img style='max-width: 300px;' src=" + data[index].photo + ">");
+            }
+            
+          });
+     // };
+});
+</script>
