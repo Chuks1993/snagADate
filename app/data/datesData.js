@@ -152,7 +152,7 @@ var datesArray = [
   "quote": ""
 },
 {
-  "name":"Woder Woman",
+  "name":"Wonder Woman",
   "photo":"http://splendidmola.com/wp-content/uploads/2017/06/wonderwoman-No_Mans_Land.jpg",
   "gender": "female",
   "type": "eccentric",

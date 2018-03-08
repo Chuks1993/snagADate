@@ -6,17 +6,66 @@ var router = express.Router();
 //var date = require("../models/date.js");
 
 // Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {
-  
-      db.dates.findAll({
-      }).then(function(dbdates) {
+router.get("/", function (req, res) {
+
+    db.dates.findAll({
+    }).then(function (dbdates) {
         var hbsObject = {
-          date: dbdates
+            date: dbdates
         };
-        console.log(hbsObject);
+        //console.log(hbsObject.date[1].name);
         res.render("index", hbsObject);
-      });
     });
+});
+
+
+
+router.get("/search/:gender", function (req, res) {
+    console.log(req.params.gender);
+    db.dates.findAll({
+        where: {
+            gender: req.params.gender
+        }
+    }).then(function (dbdates) {
+        var hbsObject = {
+            date: dbdates
+        };
+        //console.log(hbsObject);
+        res.json(dbdates);
+    });
+});
+
+    // router.get("/search/:type", function (req, res) {
+    //     console.log(req.params.type);
+    //     db.dates.findAll({
+    //         where: {
+    //             traits: req.params.type
+    //         }
+    //     }).then(function (dbdates) {
+    //         var hbsObject = {
+    //             date: dbdates
+    //         };
+    //         //console.log(hbsObject);
+    //         res.json(dbdates);
+    //     });
+    // });
+
+    //     router.get("/search/:tier", function (req, res) {
+    //         console.log(req.params.tier);
+    //         db.dates.findAll({
+    //             where: {
+    //                 tier: req.params.tier
+    //             }
+    //         }).then(function (dbdates) {
+    //             var hbsObject = {
+    //                 date: dbdates
+    //             };
+    //             //console.log(hbsObject);
+    //             res.json(dbdates);
+    //         });
+    // });
+
+
 
 // router.post("/api/cats", function(req, res) {
 //   cat.create([

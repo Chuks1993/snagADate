@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "k8fl8lrhbbpt1vxn",
-    "password": "fjznyqoj0caukp1i",
-    "database": "bnaid3hcy4ojlp8n",
-    "host": "gp96xszpzlqupw4k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "root",
+    "password": "root",
+    "database": "snagadate_db",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
@@ -14,7 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "url": "process.env.JAWSDB_URL",
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   }
 }
