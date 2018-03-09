@@ -11,3 +11,15 @@
     opacity: 0.3;
     color: #9474b8;
 }
+
+.jumbotron.jumbotron-fluid {
+    background-color: #9474b8;
+}
+
+#div1 {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border-radius: 50%;
+    
+}

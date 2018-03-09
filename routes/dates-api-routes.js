@@ -35,6 +35,22 @@ router.get("/search/:gender", function (req, res) {
     });
 });
 
+
+router.get("/search/:name", function (req, res) {
+    console.log(req.params.gender);
+    db.dates.findOne({
+        where: {
+            name: req.params.name
+        }
+    }).then(function (dbdates) {
+        var hbsObject = {
+            date: dbdates
+        };
+        //console.log(hbsObject);
+        res.json(dbdates);
+    });
+});
+
     // router.get("/search/:type", function (req, res) {
     //     console.log(req.params.type);
     //     db.dates.findAll({
