@@ -16,10 +16,6 @@
     background-color: #9474b8;
 }
 
-#div1 {
-    width: 350px;
-    height: 70px;
-    padding: 10px;
-    border-radius: 50%;
-    
+#myModal {
+    color: #9474b8;
 }
